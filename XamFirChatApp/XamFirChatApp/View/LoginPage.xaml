@@ -1,12 +1,53 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:XamFirChatApp.ViewModel"
              x:Class="XamFirChatApp.View.LoginPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <vm:LoginViewModel x:Key="loginVM" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid Margin="40,0" BindingContext="{StaticResource loginVM}">
+            <!--Login-->
+            <StackLayout x:Name="loginStackLayout" VerticalOptions="Center" IsVisible="True">
+                <Entry Placeholder="Email" 
+                       Text="{Binding Email, Mode=TwoWay}" 
+                       Keyboard="Email"/>
+                <Entry Placeholder="Password" 
+                       Text="{Binding Password, Mode=TwoWay}" 
+                       IsPassword="True" />
+                <Button Text="Login" Command="{Binding LoginCommand}" CommandParameter="{Binding CanLogin}"/>
+                <StackLayout>
+                    <Label Text="Don't have an account?" />
+                    <Label Text="Register" Style="{StaticResource accentLabel}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="RegisterLabel_Tapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </StackLayout>
+            <!--Register-->
+            <StackLayout x:Name="registerStackLayout" VerticalOptions="Center" IsVisible="False">
+                <Entry Placeholder="Name" Text="{Binding Name, Mode=TwoWay}"/>
+                <Entry Placeholder="Email" 
+                       Text="{Binding Email, Mode=TwoWay}" 
+                       Keyboard="Email"/>
+                <Entry Placeholder="Password" Text="{Binding Password, Mode=TwoWay}" IsPassword="True" />
+                <Entry Placeholder="Confirm password" 
+                       Text="{Binding ConfirmedPassword, Mode=TwoWay}" 
+                       IsPassword="True" />
+                <Button Text="Register" Command="{Binding RegisterCommand}" CommandParameter="{Binding CanRegister}" />
+                <StackLayout>
+                    <Label Text="Already have an account?" />
+                    <Label Text="Login" Style="{StaticResource accentLabel}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="LoginLabel_Tapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

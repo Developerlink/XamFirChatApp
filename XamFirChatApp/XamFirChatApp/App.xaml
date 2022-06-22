@@ -3,6 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamFirChatApp.App">
     <Application.Resources>
+        <Color x:Key="accentColor">Salmon</Color>
+        <Color x:Key="mainColor">DodgerBlue</Color>
+        <Color x:Key="lightColor">#FFFFFF</Color>
+        <Color x:Key="darkColor">#000000</Color>
 
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{StaticResource mainColor}"/>
+            <Setter Property="TextColor" Value="{StaticResource lightColor}" />
+        </Style>
+
+        <Style x:Key="accentLabel" TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource accentColor}" />
+        </Style>
     </Application.Resources>
 </Application>
