@@ -16,5 +16,17 @@ namespace XamFirChatApp.View
         {
             InitializeComponent();
         }
+
+        private void RegisterLabel_Tapped(object sender, EventArgs e)
+        {
+            registerStackLayout.IsVisible = true;
+            loginStackLayout.IsVisible = false;
+        }
+
+        private void LoginLabel_Tapped(object sender, EventArgs e)
+        {
+            registerStackLayout.IsVisible = false;
+            loginStackLayout.IsVisible = true;
+        }
     }
 }
