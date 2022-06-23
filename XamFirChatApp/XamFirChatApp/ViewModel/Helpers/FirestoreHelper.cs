@@ -19,26 +19,26 @@ namespace XamFirChatApp.ViewModel.Helpers
 
     public class FirestoreHelper
     {
-        private static IFirestore _firestore = DependencyService.Get<IFirestore>();
+        //private static IFirestore _firestore = DependencyService.Get<IFirestore>();
 
-        public static Task<bool> DeleteSubscription(Subscription subscription)
-        {
-            return _firestore.DeleteSubscription(subscription);
-        }
+        //public static Task<bool> DeleteSubscription(Subscription subscription)
+        //{
+        //    return _firestore.DeleteSubscription(subscription);
+        //}
 
-        public static Task<IList<Subscription>> GetSubscriptionsAsync()
-        {
-            return _firestore.GetSubscriptionsAsync();
-        }
+        //public static Task<IList<Subscription>> GetSubscriptionsAsync()
+        //{
+        //    return _firestore.GetSubscriptionsAsync();
+        //}
 
-        public static bool InsertSubscription(Subscription subscription)
-        {
-            return _firestore.InsertSubscription(subscription);
-        }
+        //public static bool InsertSubscription(Subscription subscription)
+        //{
+        //    return _firestore.InsertSubscription(subscription);
+        //}
 
-        public static Task<bool> UpdateSubscription(Subscription subscription)
-        {
-            return _firestore.UpdateSubscription(subscription);
-        } 
+        //public static Task<bool> UpdateSubscription(Subscription subscription)
+        //{
+        //    return _firestore.UpdateSubscription(subscription);
+        //} 
     }
 }

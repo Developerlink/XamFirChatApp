@@ -45,13 +45,13 @@ namespace XamFirChatApp.ViewModel
 
         private void SaveSupscription(object parameter)
         {
-            FirestoreHelper.InsertSubscription(new Model.Subscription
-            {
-                IsActive = IsActive,
-                Name = Name,
-                UserId = AuthHelper.GetCurrentUserId(),
-                SupscriptionDate = DateTime.Now
-            });
+            //FirestoreHelper.InsertSubscription(new Model.Subscription
+            //{
+            //    IsActive = IsActive,
+            //    Name = Name,
+            //    UserId = AuthHelper.GetCurrentUserId(),
+            //    SupscriptionDate = DateTime.Now
+            //});
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
