@@ -68,7 +68,7 @@ namespace XamFirChatApp.ViewModel
         {
             get
             {
-                return !string.IsNullOrEmpty(Email) 
+                return !string.IsNullOrEmpty(Email)
                     && !string.IsNullOrEmpty(Password);
             }
         }
@@ -102,8 +102,12 @@ namespace XamFirChatApp.ViewModel
 
         private async void Login(object parameter)
         {
-            await AuthHelper.AuthenticateUser(Email, Password);
-        } 
+            bool result = await AuthHelper.AuthenticateUser(Email, Password);
+            if (result)
+            {
+                await App.Current.MainPage.Navigation.PopAsync();
+            }
+        }
 
         private bool RegisterCanExecute(object parameter)
         {
@@ -114,9 +118,16 @@ namespace XamFirChatApp.ViewModel
         {
             if (Password != ConfirmedPassword)
             {
-                App.Current.MainPage.DisplayAlert("Error", "Passwords do not match.", "Ok");
+                await App.Current.MainPage.DisplayAlert("Error", "Passwords do not match.", "Ok");
             }
-            await AuthHelper.RegisterUser(Name, Email, Password);
+            else
+            {
+                bool result = await AuthHelper.RegisterUser(Name, Email, Password);
+                if (result)
+                {
+                    await App.Current.MainPage.Navigation.PopAsync();
+                }
+            }
         }
 
 

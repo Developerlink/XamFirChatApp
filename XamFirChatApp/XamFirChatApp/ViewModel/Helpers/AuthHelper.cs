@@ -45,12 +45,12 @@ namespace XamFirChatApp.ViewModel.Helpers
             }
         }
 
-        public bool IsAuthenticated()
+        public static bool IsAuthenticated()
         {
             return _auth.IsAuthenticated();
         }
 
-        public string GetCurrentUserId()
+        public static string GetCurrentUserId()
         {
             return _auth.GetCurrentUserId(); 
         }
