@@ -11,7 +11,7 @@ namespace XamFirChatApp
         {
             InitializeComponent();
 
-            MainPage = new LoginPage();
+            MainPage = new NavigationPage(new ChatNavigationPage());
         }
 
         protected override void OnStart()

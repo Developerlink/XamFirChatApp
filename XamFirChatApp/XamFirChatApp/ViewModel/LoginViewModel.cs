@@ -114,7 +114,7 @@ namespace XamFirChatApp.ViewModel
         {
             if (Password != ConfirmedPassword)
             {
-                App.Current.MainPage.DisplayAlert("Error", "Passwords do not match.", "Ok");
+                await App.Current.MainPage.DisplayAlert("Error", "Passwords do not match.", "Ok");
             }
             await AuthHelper.RegisterUser(Name, Email, Password);
         }
